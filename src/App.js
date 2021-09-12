@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Login from "./components/Login";
+import { Route, Switch } from "react-router";
+import { useState } from "react";
+import HomePage from "./components/HomePage";
+import ProductForm from "./components/ProductForm";
 
 function App() {
+  const [isLoggeIn, setIsLoggedIn] = useState(false);
+  const [userName, setUserName] = useState("");
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Switch>
+        <Route exact path="/">
+          {isLoggeIn ? (
+            <HomePage userName={userName} setIsLoggedIn={setIsLoggedIn} />
+          ) : (
+            <Login setUserName={setUserName} setIsLoggedIn={setIsLoggedIn} />
+          )}
+        </Route>
+        <Route exact path="/add">
+          <ProductForm />
+        </Route>
+      </Switch>
     </div>
   );
 }
