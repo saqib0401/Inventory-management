@@ -1,22 +1,22 @@
 const INITIAL_STATE = {
   currentProducts: [
     {
+      name: "Item1",
+      description: "This is the description...",
+      price: 20,
+      quantity: 2,
+      image: "https://picsum.photos/200",
+    },
+    {
       name: "Random1",
-      description: "This is the Description",
+      description: "This is the description...",
       price: 20,
       quantity: 2,
       image: "https://picsum.photos/200",
     },
     {
-      name: "Random2",
-      description: "This is the Description",
-      price: 20,
-      quantity: 2,
-      image: "https://picsum.photos/200",
-    },
-    {
-      name: "Random3",
-      description: "This is the Description",
+      name: "Product1",
+      description: "This is the description...",
       price: 20,
       quantity: 2,
       image: "https://picsum.photos/200",

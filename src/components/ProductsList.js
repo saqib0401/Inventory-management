@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
+import { SearchBox } from "./SearchBox";
 import { connect } from "react-redux";
 import { useHistory } from "react-router";
 
 const ProductsList = ({ products }) => {
+  const [search, setSearch] = useState("");
   const history = useHistory();
+  const filteredProducts = products.filter((monster) =>
+    monster.name.toLowerCase().includes(search.toLocaleLowerCase())
+  );
   return (
     <div className="products-container">
       <h1>List of Products</h1>
-      <button onClick={() => history.push("/add")}>Add products</button>
+      <SearchBox handleChange={(e) => setSearch(e.target.value)} />
+      <button onClick={() => history.push("/add")} className="add-product">
+        Add products
+      </button>
       <ul className="products-list">
-        {products.map((product, idx) => (
+        {filteredProducts.map((product, idx) => (
           <li key={idx} className="products">
             Name:{product.name}
             <br />

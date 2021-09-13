@@ -1,8 +1,9 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { setLogin } from "../redux/login/login.actions";
+import { setUser } from "../redux/user/user.actions";
 
-const Login = ({ setUserName }) => {
+const Login = () => {
   const dispatch = useDispatch();
   function handleSubmit() {
     dispatch(setLogin(true));
@@ -13,7 +14,7 @@ const Login = ({ setUserName }) => {
       <input
         type="text"
         id="name"
-        onChange={(e) => setUserName(e.target.value)}
+        onChange={(e) => dispatch(setUser(e.target.value))}
       ></input>
       <br />
       <label htmlFor="email">Email:</label>

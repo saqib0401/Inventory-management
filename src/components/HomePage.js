@@ -2,10 +2,10 @@ import React from "react";
 import Header from "./Header";
 import ProductsList from "./ProductsList";
 
-const HomePage = ({ userName }) => {
+const HomePage = () => {
   return (
     <div>
-      <Header name={userName} />
+      <Header />
       <ProductsList />
     </div>
   );
