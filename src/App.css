@@ -10,7 +10,8 @@
   text-align: initial;
   padding-top: 20vh;
   padding-left: 10vw;
-  height: 80vh;
+  padding-bottom: 7vh;
+  height: auto;
   background-color: #f9f3df;
 }
 .products-list {

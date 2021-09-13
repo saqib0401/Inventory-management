@@ -2,10 +2,10 @@ import React from "react";
 import Header from "./Header";
 import ProductsList from "./ProductsList";
 
-const HomePage = ({ userName, setIsLoggedIn }) => {
+const HomePage = ({ userName }) => {
   return (
     <div>
-      <Header name={userName} setIsLoggedIn={setIsLoggedIn} />
+      <Header name={userName} />
       <ProductsList />
     </div>
   );

@@ -1,6 +1,7 @@
 import React from "react";
-import { connect, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
+import { setCurrentProducts } from "../redux/products/products.actions";
 
 const ProductForm = () => {
   const history = useHistory();
@@ -10,7 +11,7 @@ const ProductForm = () => {
     const data = Object.fromEntries(new FormData(e.target).entries());
     console.log(data);
     e.preventDefault();
-    dispatch({ type: "SET_CURRENT_PRODUCTS", payload: data });
+    dispatch(setCurrentProducts(data));
     history.push("/");
   }
   return (
@@ -37,4 +38,4 @@ const ProductForm = () => {
   );
 };
 
-export default connect()(ProductForm);
+export default ProductForm;

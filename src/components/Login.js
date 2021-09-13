@@ -1,8 +1,11 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { setLogin } from "../redux/login/login.actions";
 
-const Login = ({ setIsLoggedIn, setUserName }) => {
-  function handleSubmit(params) {
-    setIsLoggedIn(true);
+const Login = ({ setUserName }) => {
+  const dispatch = useDispatch();
+  function handleSubmit() {
+    dispatch(setLogin(true));
   }
   return (
     <div className="login">

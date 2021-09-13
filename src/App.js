@@ -4,19 +4,20 @@ import { Route, Switch } from "react-router";
 import { useState } from "react";
 import HomePage from "./components/HomePage";
 import ProductForm from "./components/ProductForm";
+import { useSelector } from "react-redux";
 
 function App() {
-  const [isLoggeIn, setIsLoggedIn] = useState(false);
   const [userName, setUserName] = useState("");
+  const loginState = useSelector((state) => state.login.login);
 
   return (
     <div className="App">
       <Switch>
         <Route exact path="/">
-          {isLoggeIn ? (
-            <HomePage userName={userName} setIsLoggedIn={setIsLoggedIn} />
+          {loginState ? (
+            <HomePage userName={userName} />
           ) : (
-            <Login setUserName={setUserName} setIsLoggedIn={setIsLoggedIn} />
+            <Login setUserName={setUserName} />
           )}
         </Route>
         <Route exact path="/add">
